@@ -1,6 +1,6 @@
 import React from 'react';
-import Admin from './Admin';
-import Login from './Login';
+import Admin from './Components/Admin';
+import Login from './Components/Login';
 import './App.css';
 
 class App extends React.Component {
