@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
+import Admin from './Admin';
+import Login from './Login';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = ({
+      showLogin: true,
+    showAdmin: false,
+    })
+  }
+  
+  
+  // state = ({
+  //   showLogin: true,
+  //   showAdmin: false,
+  // })
+
+  loginTrue = () => {
+    this.setState({
+      showLogin: false,
+      showAdmin: true,
+    })
+    console.log("working");
+  }
+
+  render(){
+    const { showLogin, showAdmin } = this.state;
+    return (
+      <React.Fragment>
+
+        {showAdmin && <Admin />}
+        {showLogin && <Login loginTrue={this.loginTrue} />}
+        
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
