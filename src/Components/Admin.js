@@ -12,15 +12,15 @@ class Admin extends React.Component {
   })
 
   addEmploy = () => {
-    
-    const Employ = this.state.Employ;
 
+    const {Employ,FirstName,lastName,email,salary,jobStartDate} = this.state;
+    
     Employ.push({
-      FirstName:  this.state.FirstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      salary: this.state.salary,
-      jobStartDate: this.state.jobStartDate,
+      FirstName:  FirstName,
+      lastName: lastName,
+      email: email,
+      salary: salary,
+      jobStartDate: jobStartDate,
     })
 
     this.setState({

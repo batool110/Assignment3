@@ -5,15 +5,15 @@ import './App.css';
 
 class App extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = ({
       showLogin: true,
-    showAdmin: false,
+      showAdmin: false,
     })
   }
-  
-  
+
+
   // state = ({
   //   showLogin: true,
   //   showAdmin: false,
@@ -27,14 +27,14 @@ class App extends React.Component {
     console.log("working");
   }
 
-  render(){
+  render() {
     const { showLogin, showAdmin } = this.state;
     return (
       <React.Fragment>
 
         {showAdmin && <Admin />}
         {showLogin && <Login loginTrue={this.loginTrue} />}
-        
+
       </React.Fragment>
     );
   }
