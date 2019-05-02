@@ -32,6 +32,35 @@ class Admin extends React.Component {
     })
   }
 
+  delete = (id) => {
+    const {Employ, FirstName,lastName,email,salary,jobStartDate} = this.state;
+
+    Employ.splice(id,1);
+    this.setState({
+      FirstName:  FirstName,
+      lastName: lastName,
+      email: email,
+      salary: salary,
+      jobStartDate: jobStartDate,
+    })
+  }
+
+  update = (id) => {
+    const {Employ} = this.state;
+
+    Employ.map((value,index) => {
+      
+        this.setState({
+          FirstName:  value.FirstName,
+          lastName: value.lastName,
+          email: value.email,
+          salary: value.salary,
+          jobStartDate: value.jobStartDate,
+        })
+        Employ.splice(id,1);
+    })
+  }
+
   handelInput = (ev) => {
     this.setState({
       [ev.target.name] : ev.target.value,
@@ -49,7 +78,7 @@ class Admin extends React.Component {
           onChange={this.handelInput}
           />
 
-          <br/>
+          <br />
 
           last name<input
           type="text"
@@ -58,7 +87,7 @@ class Admin extends React.Component {
           onChange={this.handelInput}
           />
 
-          <br/>
+          <br />
 
           email<input
           type="text"
@@ -76,7 +105,7 @@ class Admin extends React.Component {
           onChange={this.handelInput}
           />
 
-          <br/>
+          <br />
 
           job start date<input
           type="date"
@@ -114,6 +143,8 @@ class Admin extends React.Component {
                       <td>{value.salary}</td>
                       <td>{value.jobStartDate}</td>
                     </tr>
+                    <button onClick={this.delete}>Delete</button>
+                    <button onClick={this.update}>Update</button>
                   </table>
                 </React.Fragment>
               )
