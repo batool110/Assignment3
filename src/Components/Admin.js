@@ -58,7 +58,7 @@ class Admin extends React.Component {
           jobStartDate: value.jobStartDate,
         })
         Employ.splice(id,1);
-    })
+    })  
   }
 
   handelInput = (ev) => {
